@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title>Document</title>
+
+
+    <style>
+        #main_div{
+                 float: none;
+                 background-color: #A65200
+        }
+        .div_height{
+            background-color: gray;
+        }
+
+        .div_width{
+            background-color: blueviolet;
+        }
+        @media only screen 
+            and (min-width : 400px) {
+
+                .div_j{
+                border-radius: 50%;
+                padding: 5%;
+                float: right;
+                background-color: green;
+                text-align: right;
+                font-size: 15px;
+             }
+
+             .div_height{
+                width: auto;
+                height:auto;
+                padding: 5%;
+                text-align: center;
+             }
+
+             .div_width{
+                width: auto;
+                height:auto;
+                padding: 5%;
+                text-align: center;
+             }
+
+             #main_div{
+                 float: left;
+                 text-align: center;
+             }
+        }
+
+        @media only screen 
+        and (min-width : 600px){
+        
+            .div_height, .div_width{
+                padding: 0px;
+                background-color: inherit;
+            }
+            .div_j{
+                padding: 0%;
+                float: none;
+                border-radius: 50%;
+                background-color: blue;
+                text-align: center;
+                font-size: 30px;
+                top: auto;
+             }
+             #main_div{
+                 float: none;
+                
+                 background-color: #A65200
+             }
+        }
+
+
+    </style>
+</head>
+<body>
+
+        <div id="main_div"></div>
+
+    <div class="div_j"><h1>gfgf</h1><h2>gdgdgdf</h2></div>
+    
+    
+
+
+    <script>
+        var j = $(".div_j");
+        
+        if( j ){
+         //   alert(j.length); //кол-во элементов по данному условию
+         //   alert(j.css("width")  // получение ширины
+         //   alert(j.css("width") + " , " + j.css("height")); // получение высоты и ширины элемента 
+           
+        }
+        
+
+      // $("#main_div").html("<p>Vlad</p>") //в div с  id 'main_div' вставим html элемент p  c текстом Vlad
+
+
+     // $("#main_div").html(j.css("width") + j.css("height"));//получние высты и ширины дива на момент загрузки страницы
+    
+
+
+    //в случае изменения страницы выводим длину и ширину элемента
+     $(window).on('resize', function(){
+        var k = "<div class='div_width'> "+j.css("width")+"</div><div class='div_height'>" + j.css("height")+ "</div>"; 
+        $("#main_div").html(k);
+        });
+
+    //в случае загрузки страницы даем первоночальные размеры страницы
+    $(window).on('load', function(){
+            $("#main_div").text(j.css("width") + j.css("height")); 
+    });
+
+
+
+    </script>
+</body>
+</html>
